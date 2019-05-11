@@ -3,34 +3,48 @@
 $(function () {
    function validaEntradaFunction(){
       let nome = document.querySelector("#nome");
-      alert(nome.value);
       if(nome.value == ''){
          nome.classList.add("is-invalid");
          return false;
       }
+      return true;
    }
-   $("#enviar").click(function(){
-      alert('teste');
-      validaEntradaFunction();
+   $("#enviar").click(function() {
+      let nome = document.querySelector("#nome");
+         if(validaEntradaFunction()){
+            $("#listaEsq").append($("<li class='list-group-item'>" + nome.value + botaoMover() + "</li>").hide().fadeIn(1000));
+         }
+         nome.value = '';
    })
    $("#nome").on('input', function(){
       if($(this).hasClass("is-invalid")){
          nome.classList.remove("is-invalid");
       }
    })
-   function botaoMover(nome){
-      return "<li class='list-group-item'>" 
-      + nome 
-      + "<button type='button' id='remover'; style='float: right;' class='btn btn-primary btn-sm fas fa-download pt-2 pb-2' onClick='mover()'> Remover </button>" +"</li>";
+   function botaoMover(){
+              
+      return "<button type='button' name='mover' style='float: right;' class='btn btn-primary btn-sm pt-2 pb-2'> Mover </button>";
    }
-   function mover(){
-      let nome = $(this).parent().clone().children().remove().end().text();
-      $("#listaDir").append(botaoMover(nome));
-      $(this).parent().fadeOut(1000);
+   function botaoRemover(){
+      return "<button type='button' name='remover' style='float: right;' class='btn btn-primary btn-sm pt-2 pb-2'> Remover </button>";
    }
-   // $("#mover").click(function(){
-   //    let nome = $(this).parent().clone().children().remove().end().text();
-   //    $("#listaDir").append(botaoMover(nome));
-   //    $(this).parent().fadeOut(1000);
+
+   $(document).on('click', "button", function(){
+      if($(this).attr("name")=='mover'){
+         let nome = $(this).parent().clone().children().remove().end().text();
+         $("#listaDir").append($("<li class='list-group-item'>"+ nome +botaoRemover() + "</li>").hide().fadeIn(1000));
+         $(this).parent().fadeOut(1000, function(){
+            $(this).remove();
+         });
+         $(this).attr("disabled", true);
+      }
+      else if($(this).attr("name")=='remover'){
+         $(this).parent().fadeOut(1000, function(){
+            $(this).remove();
+         });
+         
+      }
+      else{
+      }
    });
 });
