@@ -1,0 +1,22 @@
+#mainnav{
+    text-align: justify;
+}
+
+.bg-primary {
+    background-color: #EF476F !important;
+}
+#title{
+    color: #F8FFE5;
+}
+.categoria{
+    color: #F8FFE5;
+}
+/* tyle="background-color:ff71ce; border-color:aquamarine; border-radius:"  */
+
+#busca {
+    padding-right: 30px;
+}
+#search {
+    color: #EF476F;
+    margin-left: -50px;
+}
