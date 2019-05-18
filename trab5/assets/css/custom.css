@@ -8,6 +8,16 @@
 .page-footer {
     background-color: #EF476F !important;
 }
+.sidebar{
+    padding-left: 10%;
+    padding-top: 4%;
+}
+#divtitle{
+    padding-left: 10%;
+    padding-top: 4%;
+}
+.left-align{
+    padding-left: 10%
 }
 #title{
     color: #F8FFE5;
@@ -15,8 +25,17 @@
 .categoria{
     color: #F8FFE5;
 }
+#pricerange{
+    padding-top: 10%;
+}
+#subcategorias{
+    padding-top: 10%;
+}
 /* tyle="background-color:ff71ce; border-color:aquamarine; border-radius:"  */
-
+#carrinho{
+    color: #F8FFE5;
+    margin-right: 30px;
+}
 #busca {
     padding-right: 30px;
 }
@@ -31,3 +50,16 @@
 .card {
     max-width: 30%;
 }
+
+.form-check-label{
+    color: #247BA0;
+}
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+  }
