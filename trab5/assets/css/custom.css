@@ -5,6 +5,10 @@
 .bg-primary {
     background-color: #EF476F !important;
 }
+.page-footer {
+    background-color: #EF476F !important;
+}
+}
 #title{
     color: #F8FFE5;
 }
@@ -19,4 +23,11 @@
 #search {
     color: #EF476F;
     margin-left: -50px;
+}
+
+.carousel-inner img{
+    margin:auto;
+}
+.card {
+    max-width: 30%;
 }
