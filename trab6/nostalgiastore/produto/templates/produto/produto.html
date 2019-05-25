@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    {{ produto.name }}
+{% endblock %}
+
+{% block conteudo %}
+<!-- PRODUTO -->
+  <div class="">
+    <div class="container-fluid">
+      <div class="row justify-content-around" >
+        <div class="jumbotron col-8" style="border-bottom-left-radius: 40%; border-bottom-right-radius: 40%;">
+            <div class="row justify-content-around" >
+              <!-- CARD DA FOTO DO PRODUTO -->
+                <div class="card mx-2 mb-3" style="border-radius: 20%">
+                    <img src="{% static 'produto/img/' %}{{ produto.imagem }}" class="card-img-top" alt="...">
+                </div>
+                <!-- FIM CARD PRODUTO -->
+                <!-- card COISAS DO PRODUTO -->
+                <div clas="card mx-2 mb-3">
+                    <div class="card-body">
+                        <div>
+                        <h1 class="card-title float-left">{{ produto.nome }}
+                            
+                        </h1>                        
+                      </div>
+                      <div><br><br>
+                        <h3 style="float: right;">R${{ produto.preco }}</h3>
+                        <p class="card-text">{{ produto.descricao }}</p>
+                      </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
