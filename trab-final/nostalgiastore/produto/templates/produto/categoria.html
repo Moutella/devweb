@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    Nostalgia Store
+{% endblock %}
+
+{% block conteudo %}
+     <div class="container-fluid">
+    <div class="container-fluid">
+      <div class="row justify-content-around">
+        <!-- SIDEBAR DA CATEGORIA -->
+        <div class="col-3 sidebar" style="outline: 2px; outline-color:black;">
+
+          <div>
+            <h1 style="color: #4DCCBD;">{{ categoria.nome }}</h1>
+
+            <div id="pricerange" style="text-align: center;">
+              <p>
+                <input type="text" id="amount" readonly
+                  style="border:0; color:#B2DBBF; font-weight:bold; background-color: #F8FFE5;">
+              </p>
+              <div id="slider-range"></div>
+            </div>
+
+            <div id="subcategorias">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Subcategoria 1
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Subcategoria 2
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Subcategoria 3
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Subcategoria 4
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- PRODUTOS DA CATEGORIA -->
+        <div class="col-9">
+          <div style="padding-left: 20%; padding-right: 20%;">
+            <div class="row mt-5">
+            {% for produto in produtos %}
+              <div class="card mx-2 mb-3">
+                <a href="{{ produto.get_absolute_path }}">
+                  <img src="{% static 'produto/img/' %}{{ produto.imagem }}" class="card-img-top" alt="...">
+                </a>
+                
+                <div class="card-body">
+                  <div>
+                    <h5 class="card-title float-left">{{ produto.nome }}
+
+                    </h5>
+
+                  </div>
+                  <div><br><br>
+                    <p class="card-text">{{ produto.descricao }}</p>
+                    <h8 style="float: right;">R${{ produto.preco }}</h8>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+             </div>
+        </div>
+      </div>
+    </div>
+    <div id="sidebar" class="col-3">
+
+    </div>
+
+
+  </div>
+{% endblock %}

@@ -1,0 +1,112 @@
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="{% static 'produto/css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% static 'produto/css/all.css' %}" rel="stylesheet">
+  <link href="{% static 'produto/css/jquery-ui.min.css' %}" rel="stylesheet">
+  <link href="{% static 'produto/css/styles.css' %}" rel="stylesheet">
+  <link href="{% static 'produto/css/custom.css' %}" rel="stylesheet">
+  <title>{% block titulo %} BASE {% endblock %}</title>
+</head>
+<div id="pagina">
+<div id="conteudo">
+<body style="background-color: #F8FFE5">
+  <!-- NAV BAR COM SEARCH -->
+  <div>
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-primary">
+      <div class="container-fluid">
+        <div class="container-fluid">
+          <div class="row justify-content-around">
+            <div class="left-align">
+              <div class="col-4">
+                <a id="title" class="navbar-brand" href="/">Nostalgia Store</a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                  data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                  aria-label="Toggle navigation">
+                </button><!-- botao tal coisa -->
+              </div>
+            </div>
+
+            <div class="col-8">
+              <div class="navbar">
+                <div class="container-fluid justify-content-end">
+                  <div>
+                    <a href="/carrinho.html">
+                      <h5 id="carrinho" class="fas fa-shopping-cart">
+                      </h5>
+                    </a>
+                  </div>
+                  <div>
+                    <form class="form-inline my-2 my-lg-0" action="pesquisa.html" id="formBusca">
+                      <input id="busca" name="texto" class="form-control mr-sm-2" type="text" placeholder="Buscar">
+                      <button id="search" class="btn fas fa-search" type="submit" form="formBusca">
+
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </nav>
+  </div>
+  <nav class="navbar navbar-dark bg-primary" style="margin-top:40px;">
+    <div class="container-fluid">
+      <div class="container-fluid">
+        <div class="row justify-content-around">
+
+          <div class="col-4">
+            <div class="navbar row justify-content-start">
+              {% for cat in categorias %}
+                    <a class="nav-link categoria {% if categoria == cat %}active{% endif %}"
+                       href="{{ cat.get_absolute_path }}">{{ cat.nome }}</a>
+                {% endfor %}
+              {% comment %} <a class="nav-link categoria" href="/consoles">Consoles</a> {% endcomment %}
+            </div>
+          </div>
+          <div>
+            <div class="col-8 justify-content-end">
+              <div class="navbar">
+                <a class="nav-link categoria" href="#">Usuário</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+    <div class="container">
+        {% block conteudo %}
+
+        {% endblock %}
+    </div>
+
+    </div>
+   <footer class="page-footer font-small teal pt-4 footer">
+      <div class="justify-content-end container">
+          <div class="col-md-6 mb-md-0 mb-3">
+            <h5 class="text-uppercase font-weight-bold">Loja Nostalgia</h5>
+            <p>Desde 2019 tentando trazer um pouco do passado para o presente!<br>
+              A loja nostalgia é um projeto de treinamento para aprendizado de desenvolvimento web!
+            </p>  
+          </div>
+      </div>
+      </div>
+  </footer>
+  </div>
+
+
+
+
+  <script src="{% static 'produto/js/jquery-3.3.1.js' %}"></script>
+  <script src="{% static 'produto/js/popper.js' %}"></script>
+  <script src="{% static 'produto/js/bootstrap.js' %}"></script>
+  <script src="{% static 'produto/js/script.js' %}"></script>
+</body>
