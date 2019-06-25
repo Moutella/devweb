@@ -1,0 +1,85 @@
+.footer {
+    display: inline-block;
+    height:100px; 
+    width: 100%;
+    background-attachment: scroll;
+    background-position: 0% 0%;
+    background-color: #EF476F;
+    position: fixed;
+    bottom: 0pt;
+    left: 0pt;
+
+}   
+
+.footer_contents {
+
+    display: inline-block;
+    text-align: center;
+    color: #F8FFE5;
+    height:0px;
+    width: 100%;
+    margin:auto;
+
+}
+
+#mainnav{
+    text-align: justify;
+}
+
+.bg-primary {
+    background-color: #EF476F !important;
+}
+.page-footer {
+    background-color: #EF476F !important;
+}
+.sidebar{
+    padding-left: 10%;
+    padding-top: 4%;
+}
+#divtitle{
+    padding-left: 10%;
+    padding-top: 4%;
+}
+.left-align{
+    padding-left: 10%
+}
+#title{
+    color: #F8FFE5;
+}
+.categoria{
+    color: #F8FFE5;
+}
+#pricerange{
+    padding-top: 10%;
+}
+#subcategorias{
+    padding-top: 10%;
+}
+/* tyle="background-color:ff71ce; border-color:aquamarine; border-radius:"  */
+#carrinho{
+    color: #F8FFE5;
+    margin-right: 30px;
+}
+#busca {
+    padding-right: 30px;
+}
+#search {
+    color: #EF476F;
+    margin-left: -50px;
+}
+
+.carousel-inner img{
+    margin:auto;
+}
+.card {
+    max-width: 30%;
+}
+
+  #page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+  #content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
+  }
+  
