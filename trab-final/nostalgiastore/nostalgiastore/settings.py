@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'produto',
+    'autenticacao',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'autenticacao.middleware.LoginRequiredMiddleware'
 ]
 
 ROOT_URLCONF = 'nostalgiastore.urls'
@@ -100,6 +102,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+LOGIN_URL='/autenticacao/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+DATE_INPUT_FORMATS = ['%d/%m/%Y']
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

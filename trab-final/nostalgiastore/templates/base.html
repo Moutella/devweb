@@ -1,5 +1,9 @@
 {% load static %}
 
+
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,7 +42,7 @@
                     </a>
                   </div>
                   <div>
-                    <form class="form-inline my-2 my-lg-0" action="pesquisa.html" id="formBusca">
+                    <form class="form-inline my-2 my-lg-0" action="pesquisa" id="formBusca">
                       <input id="busca" name="texto" class="form-control mr-sm-2" type="text" placeholder="Buscar">
                       <button id="search" class="btn fas fa-search" type="submit" form="formBusca">
 
@@ -72,7 +76,17 @@
           <div>
             <div class="col-8 justify-content-end">
               <div class="navbar">
-                <a class="nav-link categoria" href="#">Usuário</a>
+                <div class="dropdown">
+                   <a class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" style="color: #F8FFE5" href="#">
+                      Usuários
+                   </a>
+                   <div class="dropdown-menu">
+                      <a class="dropdown-item" href="{% url 'produto:cadastra_usuario' %}">
+                      Cadastrar</a>
+                      <a class="dropdown-item" href="{% url 'produto:pesquisa_usuario' %}">
+                      Pesquisar</a>
+                   </div>
+                </div>
               </div>
             </div>
           </div>
@@ -90,17 +104,29 @@
     </div>
    
   </div>
-  <footer class="footer">
-      <div class="container footer-contents center">
-        <h5 style="text-align: center;">LOJA NOSTALGIA</h5>
-        <span class="text-muted" style="text-align: center;">Desde 2019 tentando trazer um pouco do passado para o presente!</span>
+  <footer class="footer" style="text-align: center;">
+      <div class="container footer-contents">
+        <h5 style="color: #F8FFE5;">LOJA NOSTALGIA</h5>
+        <span style="color: #F8FFE5;">Desde 2019 tentando trazer um pouco do passado para o presente!</span>
       </div>
     </footer>
 
 
 
   <script src="{% static 'produto/js/jquery-3.3.1.js' %}"></script>
-  <script src="{% static 'produto/js/popper.js' %}"></script>
-  <script src="{% static 'produto/js/bootstrap.js' %}"></script>
-  <script src="{% static 'produto/js/script.js' %}"></script>
+
+    <script src="{% static 'produto/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'produto/js/jquery.mask.js' %}"></script>
+
+    <script src="{% static 'produto/js/popper.js' %}"></script>
+    <script src="{% static 'produto/js/bootstrap.js' %}"></script>
+    <script src="{% static 'produto/js/script.js' %}"></script>
+  <script>
+        $(document).ready(function(){
+            {% block domready %}
+
+            {% endblock %}
+        });
+    </script>
 </body>
+</html>

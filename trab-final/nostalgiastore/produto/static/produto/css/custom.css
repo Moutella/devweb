@@ -1,5 +1,6 @@
 .footer {
     display: inline-block;
+    padding-top:30px;
     height:100px; 
     width: 100%;
     background-attachment: scroll;

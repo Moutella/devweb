@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block titulo %}
+    Pesquisa de Usuarios
+{% endblock %}
+
+{% block conteudo %}
+    <div style="margin-bottom: 15px;">
+        <h4 style="margin-bottom: 10px;">Pesquisa de Usuarios</h4>
+        <hr style="margin-bottom: 0px;">
+    </div>
+
+    <form class="mb-4" action ="{% url 'produto:exibe_usuarios' %}" method ="GET" novalidate>
+        <div class="form-group row" style="margin-bottom: 10px;">
+            <label for="id_buscaPor"
+                   class="col-lg-2 col-form-label font-weight-bold">Nome</label>
+            <div class="col-lg-10">
+                {{ form.buscaPor }}
+            </div>
+        </div>
+
+        {#  <input type="text"                               #}
+        {#     name="buscaPor"                                #}
+        {#     id="id_buscaPor"                               #}
+        {#     class="form-control form-control-sm"          #}
+        {#     maxlength="50"                                #}
+        {#     required>                                     #}
+
+        <div class="row">
+            <div class="col-lg-10 offset-lg-2">
+                <button type="submit" class="btn btn-primary">
+                    Pesquisar
+                </button>
+            </div>
+        </div>
+    </form>
+
+    {% if usuarios %}
+        <h5>Lista de Usuarios</h5>
+        <div class="table-responsive mb-4">
+            <table style="width:100%"
+                   class="table table-striped table-sm table-bordered mb-0">
+                <thead>
+                   <tr>
+                      <th class="texto text-center">Nome</th>
+                      <th class="texto text-center">E-mail</th>
+                      <th class="texto text-center">CPF</th>
+                      <th class="texto text-center">Nascimento</th>
+                      <th class="texto text-center">Data de Cadastro</th>
+                   </tr>
+                </thead>
+                <tbody>
+                   {% for usuario in usuarios %}
+                      <tr>
+                         <td width="30%" class="text-left">
+                            <a href="{% url 'produto:exibe_usuario' usuario.id %}">
+                                 <span class="texto">{{ usuario.nome }}</span>
+                            </a>
+                         </td>
+                         <td width="30%" class="text-left">
+                             <span class="texto">
+                                    {{ usuario.email }}
+                             </span>
+                         </td>
+                         <td width="20%" class="text-right">
+                             <span class="texto mr-3">{{ usuario.cpf}}</span>
+                         </td>
+                         <td width="20%" class="text-right">
+                             <span class="texto mr-3">{{ usuario.nascimento | date:'d/m/Y' }}</span>
+                         </td>
+                         <td width="20%" class="text-center">
+                             <span class="texto">{{ usuario.data_cadastro | date:'d/m/Y' }}</span>
+                         </td>
+                      </tr>
+                   {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row" style="font-size: 14px;">
+            <div class="col-12">
+                {% if usuarios.has_other_pages %}
+                    <ul class="pagination">
+                        {% if usuarios.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?pagina={{ usuarios.previous_page_number }}&buscaPor={{ buscaPor }}">
+                                    Anterior
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">
+                                    Anterior
+                                </a></li>
+                        {% endif %}
+                        {% for i in usuarios.paginator.page_range %}
+                            {% if usuarios.number == i %}
+                                <li class="page-item active"><a class="page-link" tabindex="-1" href="#">{{ i }} </a></li>
+                            {% else %}
+                                <li class="page-item"><a class="page-link" href="?pagina={{ i }}&buscaPor={{ buscaPor }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if usuarios.has_next %}
+                            <li class="page-item"><a class="page-link" href="?pagina={{ usuarios.next_page_number }}&buscaPor={{ buscaPor }}">Próxima</a></li>
+                        {% else %}
+                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Próxima</a></li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+
+    {% endif %}
+
+{% endblock %}
+
+{% block domready %}
+
+{% endblock %}
