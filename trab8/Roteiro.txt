@@ -1,0 +1,6 @@
+﻿1. Ao ser cadastrado um produto, ele deve ser cadastrado no banco de dados via
+   requisição ajax e deve ser adicionado à tabela de produtos existente na página
+   cadastra_produto.html
+2. Ao ser clicado o botão de remoção de um produto, deve ser enviada uma requisição
+   ajax para o servidor para que o produto seja removido do banco de dados e, em
+   seguida, o produto deve ser removido da tabela html.
